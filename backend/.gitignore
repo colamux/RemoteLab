@@ -1,0 +1,13 @@
+/*
+!config
+!controllers
+!routers
+
+# config files
+!go.mod
+!go.sum
+!.gitignore
+
+# json & go
+!*.json
+!*.go
