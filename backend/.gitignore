@@ -1,7 +1,10 @@
 /*
 !config
-!controllers
-!routers
+!controller
+!common
+!router
+!model
+!middleware
 
 # config files
 !go.mod

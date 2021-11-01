@@ -13,7 +13,7 @@ func main() {
 	// server := routers.Init(signup.Routers, login.Routers, home.Routers, sessions.Routers)
 	e := gin.Default()
 
-	e.Use(middleware.InitMiddleWares)
+	e.Use(middleware.AuthMiddleware())
 
 	config.ParseConfig()
 	fmt.Println(config.GlobalConfig)

@@ -7,7 +7,9 @@ require (
 	github.com/gin-gonic/gin v1.7.4
 	github.com/go-playground/validator/v10 v10.9.0 // indirect
 	github.com/go-redis/redis v6.15.9+incompatible // indirect
+	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/google/uuid v1.3.0
 	github.com/gorilla/sessions v1.2.1
 	github.com/howeyc/fsnotify v0.9.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
