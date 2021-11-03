@@ -9,4 +9,5 @@ Embedded Teaching Remote Laboratory of ZJU
 |router
 |middleware|
 |controller
-|model
+|common|通用功能
+|model| 数据模型
