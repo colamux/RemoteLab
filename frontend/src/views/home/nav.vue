@@ -21,10 +21,11 @@ const items = [
         url: "/equipment/list",
         icon: "el-icon-setting"
       },
-      // {
-      //   name: "列表",
-      //   url: "/wms/list",
-      // },
+      {
+        name: "表格",
+        url: "/equipment/table",
+        icon: "el-icon-setting"
+      },
     ],
   },
 ];

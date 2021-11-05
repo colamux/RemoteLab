@@ -25,6 +25,12 @@ const routes = [
         name: 'list',
         meta: { title: '列表展示' },
         component: () => import('../views/list.vue')
+      },
+      {
+        path: '/equipment/table',
+        name: 'table',
+        meta: { title: '信息展示' },
+        component: () => import('../views/table.vue')
       }
     ]
     // children: [
