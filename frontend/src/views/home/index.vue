@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     goBack() {
-      sessionStorage.removeItem("username");
+      localStorage.removeItem("Authorization");
       this.$router.push("/login");
     },
   },

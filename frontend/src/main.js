@@ -7,13 +7,25 @@ import axios from 'axios'
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI);
-Vue.config.productionTip = false; 
+Vue.config.productionTip = false;
 Vue.prototype.$http = axios;        // 把axios赋给全局变量http
 // axios.defaults.baseURL = 'http://localhost:8000'    // 全局地址
 axios.defaults.baseURL = '/api'    // 全局地址
 
+axios.interceptors.request.use(
+  config => {
+    if (localStorage.getItem('Authorization')) {
+      config.headers.Authorization = localStorage.getItem('Authorization');
+    }
+    return config;
+  },
+  error => {
+    return Promise.reject(error);
+  }
+)
+
 new Vue({
-  router, 
+  router,
   store,
   render: h => h(App)
 }).$mount('#app')

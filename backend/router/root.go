@@ -11,4 +11,6 @@ func Root(e *gin.Engine) {
 		func(c *gin.Context) {
 			c.String(200, "root")
 		})
+
+	e.GET("/login")
 }

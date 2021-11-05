@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"rlab/config"
-	"rlab/middleware"
 	"rlab/router"
 
 	"github.com/gin-gonic/gin"
@@ -13,7 +12,7 @@ func main() {
 	// server := routers.Init(signup.Routers, login.Routers, home.Routers, sessions.Routers)
 	e := gin.Default()
 
-	e.Use(middleware.AuthMiddleware())
+	// e.Use(middleware.AuthMiddleware())
 
 	config.ParseConfig()
 	fmt.Println(config.GlobalConfig)
@@ -21,5 +20,5 @@ func main() {
 	router.Init(e, router.Admin, router.Api, router.Root)
 	e.Static("/var", "../frontend")
 
-	e.Run("localhost:8080")
+	e.Run("localhost:8000")
 }

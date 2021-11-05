@@ -29,7 +29,7 @@ func (con UserController) Add(c *gin.Context) {
 
 	c.JSON(200, gin.H{
 		"code": 200,
-		"data": gin.H{"token": token},
+		"data": gin.H{"Authorization": token},
 		"msg":  name + "登陆成功",
 	})
 }

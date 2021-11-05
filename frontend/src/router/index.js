@@ -54,11 +54,17 @@ const router = new VueRouter({
   routes
 })
 router.beforeEach((to, from, next) => {
-  if (!sessionStorage.getItem('username')) {
-    if (to.path != '/login') {
-      next('/login')
-    }
+  let islogin = to.path == '/login'
+  let hastoken = localStorage.getItem('Authorization') != null
+
+  if (islogin && hastoken) { //已登录，访问/login
+    next('/home')
+  } else if (!islogin && !hastoken) { // 未登录，访问非/login
+    next('/login')
+  } else {                  // 其余情况，
+    next()
   }
+
   next()
 })
 export default router

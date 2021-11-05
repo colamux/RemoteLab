@@ -1,12 +1,14 @@
 package router
 
 import (
+	"rlab/middleware"
+
 	"github.com/gin-gonic/gin"
 )
 
 func Api(e *gin.Engine) {
 
-	apiRouters := e.Group("/api")
+	apiRouters := e.Group("/api", middleware.AuthMiddleware())
 
 	apiRouters.GET("/", func(c *gin.Context) {
 		c.String(200, "api")

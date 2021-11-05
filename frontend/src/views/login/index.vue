@@ -52,7 +52,7 @@ export default {
       let { name, passwd } = this.ruleForm;
       this.$http({
         method: "post",
-        url: "/login",
+        url: "/admin/add",
         data: {
           username: name,
           password: passwd,
@@ -66,8 +66,8 @@ export default {
         // }),
       }).then((res) => {
         if (res.status == 200) {
-          sessionStorage.setItem("username", name);
-          // localStorage.setItem
+          // sessionStorage.setItem("username", name);
+          localStorage.setItem("Authorization", res.data['data']['Authorization'])
           this.$router.push("/home");
         }
       });
