@@ -1,3 +1,4 @@
+import sha256 from 'js-sha256'
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
@@ -9,6 +10,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;        // 把axios赋给全局变量http
+Vue.prototype.$encrypt = sha256;
 // axios.defaults.baseURL = 'http://localhost:8000'    // 全局地址
 axios.defaults.baseURL = '/api'    // 全局地址
 

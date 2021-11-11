@@ -13,11 +13,11 @@ const term = 6 * time.Hour
 var jwtKey = []byte("remote lab")
 
 type claims struct {
-	user.User
+	user.UserInfo
 	jwt.StandardClaims
 }
 
-func ReleaseToken(user user.User) (string, error) {
+func ReleaseToken(user user.UserInfo) (string, error) {
 	claim := &claims{
 		user,
 		jwt.StandardClaims{

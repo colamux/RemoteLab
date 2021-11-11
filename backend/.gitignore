@@ -1,16 +1,17 @@
 /*
 !config
+!initialize
 !controller
 !common
 !router
 !model
 !middleware
+!DAL
 
 # config files
 !go.mod
 !go.sum
 !.gitignore
 
-# json & go
-!*.json
-!*.go
+# go
+!main.go

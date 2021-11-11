@@ -1,0 +1,15 @@
+{
+    "SessionsSecret": "scre",
+    "Mysql": {
+        "rootpasswd": "RLab_226",
+        "Ip": "10.15.192.237",
+        "Port": 3306,
+        "Db": "fafa",
+        "Passswd": "Db1_passwd",
+        "User": "db1"
+    },
+    "Redis": {
+        "Ip": "0.0.0.0",
+        "Port": 8080
+    }
+}

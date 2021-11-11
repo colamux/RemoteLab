@@ -31,8 +31,8 @@ export default {
   data() {
     return {
       ruleForm: {
-        name: "cola",
-        passwd: "passwd",
+        name: "",
+        passwd: "",
       },
       rules: {
         name: [
@@ -52,10 +52,10 @@ export default {
       let { name, passwd } = this.ruleForm;
       this.$http({
         method: "post",
-        url: "/admin/add",
+        url: "/login",
         data: {
           username: name,
-          password: passwd,
+          password: this.$encrypt(passwd),
         },
         headers: {
           //   'Content-Type':'application/json',

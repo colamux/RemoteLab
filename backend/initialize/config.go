@@ -1,4 +1,4 @@
-package config
+package initialize
 
 import (
 	"encoding/json"
@@ -25,7 +25,7 @@ type redis struct {
 var GlobalConfig Config
 
 func ParseConfig() {
-	ctx, err := ioutil.ReadFile("config.json")
+	ctx, err := ioutil.ReadFile("config/config.json")
 	if err != nil {
 		return
 	}

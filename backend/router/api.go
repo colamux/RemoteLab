@@ -8,7 +8,7 @@ import (
 
 func Api(e *gin.Engine) {
 
-	apiRouters := e.Group("/api", middleware.AuthMiddleware())
+	apiRouters := e.Group("/api", middleware.JWTMiddleware())
 
 	apiRouters.GET("/", func(c *gin.Context) {
 		c.String(200, "api")

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"rlab/config"
+	"rlab/initialize"
 	"rlab/router"
 
 	"github.com/gin-gonic/gin"
@@ -14,8 +14,8 @@ func main() {
 
 	// e.Use(middleware.AuthMiddleware())
 
-	config.ParseConfig()
-	fmt.Println(config.GlobalConfig)
+	initialize.ParseConfig()
+	fmt.Println(initialize.GlobalConfig)
 
 	router.Init(e, router.Admin, router.Api, router.Root)
 	e.Static("/var", "../frontend")
