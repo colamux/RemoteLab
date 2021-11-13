@@ -1,6 +1,8 @@
 <template>
   <div class="login">
     <p class="login-title">嵌入式远程实验室平台</p>
+    <el-button @click="go2signup">注册</el-button>
+    <!-- <a href="/signup"> 注册 </a> -->
     <div class="login-main">
       <el-form
         :model="ruleForm"
@@ -72,6 +74,9 @@ export default {
         }
       });
     },
+    go2signup() {
+      this.$router.push('/signup')
+    }
   },
 };
 </script>

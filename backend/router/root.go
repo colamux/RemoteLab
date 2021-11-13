@@ -14,4 +14,5 @@ func Root(e *gin.Engine) {
 		})
 
 	e.POST("/login", controller.Login)
+	e.POST("/signup", controller.Signup)
 }

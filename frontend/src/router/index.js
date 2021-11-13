@@ -53,6 +53,11 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/login/index.vue')
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: () => import('../views/signup/index.vue')
   }
 ]
 
@@ -60,17 +65,14 @@ const router = new VueRouter({
   routes
 })
 router.beforeEach((to, from, next) => {
-  let islogin = to.path == '/login'
+  let noauth = to.path == '/login' || to.path == '/signup'
   let hastoken = localStorage.getItem('Authorization') != null
 
-  if (islogin && hastoken) { //已登录，访问/login
+  if (noauth && hastoken) { //已登录，访问需要权限的页面
     next('/home')
-  } else if (!islogin && !hastoken) { // 未登录，访问非/login
+  } else if (!noauth && !hastoken) { // 未登录，访问无需auth
     next('/login')
-  } else {                  // 其余情况，
-    next()
-  }
-
+  } 
   next()
 })
 export default router

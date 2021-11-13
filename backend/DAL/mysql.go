@@ -67,3 +67,7 @@ func GetAuth(dest *[]string, identity_type string, identifier string) error {
 
 	return Db.Select(dest, querySql)
 }
+
+func Register() {
+	// createSql := ``
+}

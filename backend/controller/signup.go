@@ -1,7 +1,17 @@
 package controller
 
-import "github.com/gin-gonic/gin"
+import (
+	"fmt"
 
-func SignUp(c *gin.Context) {
+	"github.com/gin-gonic/gin"
+)
+
+func Signup(c *gin.Context) {
+	data := make(map[string]string)
+	c.BindJSON(&data)
+
+	fmt.Printf("%v", data)
+
+	c.String(200, "注册成功！")
 
 }
