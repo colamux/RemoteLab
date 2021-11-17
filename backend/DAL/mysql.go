@@ -1,6 +1,7 @@
 package DAL
 
 import (
+	"database/sql"
 	"fmt"
 	"log"
 
@@ -50,9 +51,9 @@ func GetPasswd(identity_type string, identifier string) (string, error) {
 }
 
 func GetVM(dest *[]string, name string) error {
-	querySql := `select vm from users where name = "` + name + `";`
+	querySql := `select vm from users where name = ?`
 
-	return Db.Select(dest, querySql)
+	return Db.Select(dest, querySql, name)
 }
 
 // 先前存在错误：httpstatus=500
@@ -62,12 +63,13 @@ func GetVM(dest *[]string, name string) error {
 
 // type of dest is *[]string
 func GetAuth(dest *[]string, identity_type string, identifier string) error {
-	querySql := `select password from user_auths where identity_type = "` +
-		identity_type + `" and identifier = "` + identifier + `";`
+	querySql := `select password from user_auths where identity_type = ? and identifier = ?`
 
-	return Db.Select(dest, querySql)
+	return Db.Select(dest, querySql, identity_type, identifier)
 }
 
-func Register() {
-	// createSql := ``
+func SetAuth(uid int64, identity_type string, identifier string, password string) (sql.Result, error) {
+	createSql := "insert into user_auths(uid, identity_type, identifier, password) value(?, ?, ?, ?)"
+
+	return Db.Exec(createSql, uid, identity_type, identifier, password)
 }

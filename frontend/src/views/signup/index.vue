@@ -9,20 +9,20 @@
         </el-form-item>
 
         <el-form-item label="电话">
-            <el-input v-model="form.telephone"></el-input>
+          <el-input v-model="form.telephone"></el-input>
         </el-form-item>
 
         <el-form-item label="邮箱">
-            <el-input v-model="form.email"></el-input>
+          <el-input v-model="form.email"></el-input>
         </el-form-item>
 
         <el-form-item label="密码">
-            <el-input v-model="form.password"></el-input>
+          <el-input v-model="form.password" show-password></el-input>
         </el-form-item>
 
         <el-form-item>
           <el-button type="primary" @click="signup">注册</el-button>
-          <el-button @click="go2login">取消</el-button>
+          <el-button @click="go2login">返回</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -35,23 +35,23 @@ export default {
     return {
       form: {
         name: "",
-        email:"xx@abc.com",
+        email: "xx@abc.com",
         telephone: "18712341234",
-        passwd: "",
+        password: "",
       },
     };
   },
   methods: {
     signup() {
-        let {name,email,telephone, passwd} = this.form
-    this.$http({
+      let { username, email, telephone, password } = this.form;
+      this.$http({
         method: "post",
         url: "/signup",
         data: {
-          username: name,
-          password: this.$encrypt(passwd),
+          username: username,
+          password: this.$encrypt(password),
           telephone: telephone,
-          email: email
+          email: email,
         },
         headers: {
           //   'Content-Type':'application/json',
@@ -59,15 +59,16 @@ export default {
       }).then((res) => {
         if (res.status == 200) {
           // sessionStorage.setItem("username", name);
-          alert("注册成功！")
-          
+          let result = res.data['data']['result']
+          if (result == "OK") 
+            alert("注册成功！");
         }
         // if (res.status == )
       });
     },
     go2login() {
-        this.$router.push('/login')
-    }
+      this.$router.push("/login");
+    },
   },
 };
 </script>
