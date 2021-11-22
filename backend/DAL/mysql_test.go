@@ -1,0 +1,5 @@
+package DAL
+
+func querytest() {
+
+}

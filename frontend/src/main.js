@@ -7,6 +7,17 @@ import ElementUI from 'element-ui';
 import axios from 'axios'
 import 'element-ui/lib/theme-chalk/index.css';
 
+
+import "video.js/dist/video-js.css";
+// import "vue-video-player/src/custom-theme.css";
+import videoPlayer from "vue-video-player";
+import "videojs-contrib-hls";
+// import 'video.js'
+// import "videojs-flash";
+// import Vue from "vue";
+Vue.use(videoPlayer);
+
+
 Vue.use(ElementUI);
 Vue.config.productionTip = false;
 Vue.prototype.$http = axios;        // 把axios赋给全局变量http

@@ -73,3 +73,15 @@ func SetAuth(uid int64, identity_type string, identifier string, password string
 
 	return Db.Exec(createSql, uid, identity_type, identifier, password)
 }
+
+func CheckUser(dest *[]int, name string) error {
+	querySql := `select exists(select * from users where name = ?)`
+
+	return Db.Select(dest, querySql, name)
+}
+
+func GetStatus(dest *[]string, uuid string) error {
+	querySql := `select status from devices where uuid = ?`
+
+	return Db.Select(dest, querySql, uuid)
+}

@@ -26,6 +26,11 @@ const items = [
         url: "/equipment/table",
         icon: "el-icon-setting"
       },
+      {
+        name: "实验现象",
+        url: "/video",
+        icon: "el-icon-setting"
+      },
     ],
   },
 ];

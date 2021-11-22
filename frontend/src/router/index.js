@@ -31,6 +31,12 @@ const routes = [
         name: 'table',
         meta: { title: '信息展示' },
         component: () => import('../views/table.vue')
+      },
+      {
+        path: '/video',
+        name: 'video',
+        meta: { title: '实验现象' },
+        component: () => import('../views/video.vue')
       }
     ]
     // children: [
