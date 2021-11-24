@@ -22,4 +22,3 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 # hls测试地址
-http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8

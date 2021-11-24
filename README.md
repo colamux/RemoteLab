@@ -11,3 +11,9 @@ Embedded Teaching Remote Laboratory of ZJU
 |controller
 |common|通用功能
 |model| 数据模型
+
+
+# hls
+```shell
+sudo apt install nginx libnginx-rtmp-mod
+```
